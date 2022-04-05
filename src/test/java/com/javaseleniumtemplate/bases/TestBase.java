@@ -1,6 +1,7 @@
 package com.javaseleniumtemplate.bases;
 
 import com.javaseleniumtemplate.GlobalParameters;
+import com.javaseleniumtemplate.tests.LoginTests;
 import com.javaseleniumtemplate.utils.DriverUtils;
 import org.junit.After;
 import org.junit.AfterClass;

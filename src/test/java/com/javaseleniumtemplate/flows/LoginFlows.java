@@ -1,21 +1,27 @@
 package com.javaseleniumtemplate.flows;
 
 import com.javaseleniumtemplate.pages.LoginPage;
+import org.junit.Test;
 
 public class LoginFlows {
-    //Objects and constructor
+    //Objects
     LoginPage loginPage;
 
-    public LoginFlows(){
-        //Page and Steps Objects
+    //Tests
+    @Test
+    public static void efetuarLogin(){
+        LoginPage loginPage;
+        //Objects instances
         loginPage = new LoginPage();
-    }
 
-    //Flows
-    public void efetuarLogin(String usuario, String senha){
-        loginPage.clicarEmAceitarCookies();
-        loginPage.preenhcerUsuario(usuario);
+        //Parameteres
+        String usuario = "henrique.viciedo";
+        String senha = "minhaSenha_123";
+
+        //Test
+        loginPage.preencherUsuario(usuario);
         loginPage.preencherSenha(senha);
         loginPage.clicarEmLogin();
+
     }
 }

@@ -1,9 +1,18 @@
 package com.javaseleniumtemplate.tests;
 
 import com.javaseleniumtemplate.bases.TestBase;
+import com.javaseleniumtemplate.bases.PageBase;
+import com.javaseleniumtemplate.utils.DriverUtils;
 import com.javaseleniumtemplate.pages.LoginPage;
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
+import java.util.Set;
 
 public class LoginTests extends TestBase {
     //Objects
@@ -11,22 +20,21 @@ public class LoginTests extends TestBase {
 
     //Tests
     @Test
-    public void efetuarLoginEmailInvalido(){
-
+    public void efetuarLogin(){
         //Objects instances
         loginPage = new LoginPage();
 
         //Parameteres
-        String usuario = "emailerrado@email.com";
-        String senha = "123456";
-        String mensagemErroEsperada = "E-mail ou senha inv";
-
+        String usuario = "henrique.viciedo";
+        String senha = "minhaSenha_123";
+    
         //Test
-        loginPage.clicarEmAceitarCookies();
-        loginPage.preenhcerUsuario(usuario);
+        loginPage.preencherUsuario(usuario);
         loginPage.preencherSenha(senha);
         loginPage.clicarEmLogin();
 
-        Assert.assertTrue(loginPage.retornaMensagemErroLogin().contains(mensagemErroEsperada));
+        String url = DriverUtils.INSTANCE.getCurrentUrl();
+
+        Assert.assertEquals("https://mantis-prova.base2.com.br/my_view_page.php", url);
     }
 }

@@ -41,7 +41,7 @@ public class DriverUtils {
         }
     }
 
-    public static void quitInstace(){
+   public static void quitInstace(){
         INSTANCE.quit();
         INSTANCE = null;
     }
